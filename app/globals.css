@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f6f3ee;
-  --bg-alt: #efe9e0;
-  --ink: #1c1a17;
-  --muted: #6f675c;
-  --accent: #9a7b4f;
-  --accent-deep: #7a5f38;
-  --line: #e0d8cc;
+  --bg: #f7f7f7;
+  --bg-alt: #efeae2;
+  --ink: #0d0d0d;
+  --muted: #4f4f4f;
+  --accent: #cfa864;
+  --accent-deep: #b28e4e;
+  --line: #e2e2e2;
 }
 
 @theme inline {
@@ -65,10 +65,10 @@ body {
 /* Reveal on scroll */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(40px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .reveal.in {
@@ -76,11 +76,71 @@ body {
   transform: translateY(0);
 }
 
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition:
+    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal-scale.in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Notched corner cards */
+.notched-card {
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+}
+
+/* Continuous rotation */
+@keyframes rotate-badge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: rotate-badge 15s linear infinite;
+}
+
+/* Premium zoom transitions */
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom .zoom-target {
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hover-zoom:hover .zoom-target {
+  transform: scale(1.06);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-deep);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
   }
-  .reveal {
+  .reveal, .reveal-scale {
     opacity: 1;
     transform: none;
     transition: none;
@@ -90,14 +150,3 @@ body {
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-alt);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 6px;
-}

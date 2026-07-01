@@ -4,6 +4,7 @@ import Marquee from "./components/Marquee";
 import Counter from "./components/Counter";
 import Testimonials from "./components/Testimonials";
 import CTASection from "./components/CTASection";
+import ProjectShowcase from "./components/ProjectShowcase";
 import { SERVICES, PROJECTS, TESTIMONIALS, STATS } from "./lib/data";
 
 const PILLARS = [
@@ -32,87 +33,83 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <div className="bg-bg text-ink">
-      {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-bg-alt via-bg to-bg-alt" />
-        <div className="absolute right-[-10%] top-[10%] -z-10 h-[480px] w-[480px] rounded-full bg-accent/15 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] -z-10 h-[380px] w-[380px] rounded-full bg-accent-deep/10 blur-3xl" />
+      {/* HERO SECTION WITH IMAGE BACKDROP */}
+      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-36 pb-36 lg:pb-44 isolate">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        />
+        {/* Overlay scrim */}
+        <div className="absolute inset-0 -z-10 bg-black/55 backdrop-blur-[1px]" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
-          <div>
-            <Reveal>
-              <SectionLabel>Interior Design & Execution</SectionLabel>
+        <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 flex-grow flex flex-col justify-center">
+          {/* Main Title Block */}
+          <div className="text-center max-w-4xl mx-auto mt-16 mb-8">
+            <Reveal type="scale">
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-accent bg-black/40 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10">
+                Interior Design & Execution
+              </span>
             </Reveal>
-            <Reveal delay={100}>
-              <h1 className="mt-6 font-display text-5xl leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
+            <Reveal delay={150}>
+              <h1 className="mt-8 font-display text-5xl leading-[1.05] text-white sm:text-7xl lg:text-8xl font-medium">
                 Welcome to <span className="text-accent">Aarti Furniture</span>
               </h1>
             </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+            <Reveal delay={250}>
+              <p className="mt-6 max-w-xl mx-auto text-lg leading-relaxed text-white/80">
                 Your first step toward a personalized space. We turn everyday
                 rooms into something inspiring, functional, and truly yours.
               </p>
             </Reveal>
-            <Reveal delay={300}>
-              <div className="mt-9 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/services"
-                  className="rounded-full bg-accent px-7 py-3.5 font-semibold text-white transition-colors hover:bg-accent-deep"
-                >
-                  View services
-                </Link>
-                <Link
-                  href="/projects"
-                  className="rounded-full border border-line px-7 py-3.5 font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
-                >
-                  See our work
-                </Link>
-              </div>
-            </Reveal>
           </div>
 
-          <Reveal delay={200}>
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#b69b73] to-[#5f4b32] shadow-2xl">
-                <div className="flex h-full flex-col justify-end p-8">
-                  <div className="rounded-2xl bg-bg/95 p-6 backdrop-blur">
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl text-accent">★</span>
-                      <span className="text-2xl font-semibold">4.9</span>
-                    </div>
-                    <p className="mt-1 text-sm text-muted">
-                      Rated by 2k+ satisfied customers
-                    </p>
+          {/* Split Detail Row */}
+          <div className="grid gap-8 md:grid-cols-2 items-end border-t border-white/10 pt-8 mt-auto text-white">
+            <Reveal delay={300}>
+              <p className="max-w-md text-base sm:text-lg text-white/70 leading-relaxed">
+                Designing spaces is not just about getting inspired by the trends,
+                but also aligning them with the emotions and perceptions of our clients.
+              </p>
+            </Reveal>
+            <Reveal delay={350} className="flex md:justify-end">
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-4 bg-white text-ink font-semibold rounded-full px-6 py-3 hover:bg-accent hover:text-white transition-all duration-300"
+              >
+                <span>View Services</span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white font-semibold text-sm transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                  ↗
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Floating cards overlapping transition */}
+        <div className="absolute bottom-0 inset-x-0 translate-y-1/2 z-20 px-6">
+          <div className="mx-auto max-w-7xl grid gap-6 md:grid-cols-3">
+            {PILLARS.map((p, i) => (
+              <Reveal key={p.title} delay={i * 120} type="scale">
+                <div className="h-full rounded-[2rem] border border-white/10 bg-black/85 backdrop-blur-md p-8 text-white shadow-[0_15px_40px_rgb(0,0,0,0.25)] hover:-translate-y-1.5 transition-all duration-300">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 font-display text-base text-accent border border-accent/30 font-semibold">
+                    {String(i + 1).padStart(2, "0")}
                   </div>
+                  <h3 className="font-display text-2xl text-white font-medium">{p.title}</h3>
+                  <p className="mt-3 leading-relaxed text-white/60 text-sm">{p.body}</p>
                 </div>
-              </div>
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
+
+      <div className="h-28" /> {/* Offset spacer for floating cards */}
 
       <Marquee items={["Who we are", "What we offer", "Selected projects"]} />
 
-      {/* PILLARS */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="grid gap-8 md:grid-cols-3">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 120}>
-              <div className="h-full rounded-2xl border border-line bg-bg-alt p-8">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-accent/15 font-display text-xl text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="font-display text-2xl text-ink">{p.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* ABOUT PREVIEW */}
-      <section className="bg-bg-alt py-24">
+      <section className="bg-bg-alt py-24 border-y border-line/40">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:px-10">
           <Reveal>
             <SectionLabel>Who we are</SectionLabel>
@@ -127,9 +124,10 @@ export default function Home() {
             </p>
             <Link
               href="/about"
-              className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deep"
+              className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deep group"
             >
-              More about us <span aria-hidden>→</span>
+              More about us 
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </Reveal>
 
@@ -138,12 +136,12 @@ export default function Home() {
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-line bg-bg p-8 text-center"
+                  className="rounded-2xl border border-line bg-bg p-8 text-center shadow-[0_4px_20px_rgb(0,0,0,0.015)]"
                 >
-                  <p className="font-display text-5xl text-accent">
+                  <p className="font-display text-5xl text-accent font-semibold">
                     <Counter end={stat.end} suffix={stat.suffix} />
                   </p>
-                  <p className="mt-2 text-sm uppercase tracking-widest text-muted">
+                  <p className="mt-2 text-xs uppercase tracking-widest text-muted font-medium">
                     {stat.label}
                   </p>
                 </div>
@@ -153,99 +151,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES PREVIEW */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      {/* SERVICES PREVIEW WITH NOTCHED CARDS */}
+      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <SectionLabel>What we offer</SectionLabel>
-            <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl">
+            <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl leading-tight">
               Take a brief look at some of the services we offer
             </h2>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.slice(0, 3).map((service, i) => (
-            <Reveal key={service.slug} delay={(i % 3) * 120}>
+            <Reveal key={service.slug} delay={(i % 3) * 120} type="scale">
               <Link
                 href="/services"
-                className="group block h-full overflow-hidden rounded-2xl border border-line bg-bg-alt transition-shadow hover:shadow-xl"
+                className="notched-card group relative block h-full overflow-hidden rounded-2xl border border-line bg-bg-alt p-8 pb-10 shadow-[0_4px_30px_rgb(0,0,0,0.01)] transition-all duration-300 hover:shadow-2xl hover:border-accent hover:-translate-y-1"
               >
-                <div className={`aspect-[3/2] bg-gradient-to-br ${service.tone}`} />
-                <div className="p-7">
-                  <h3 className="font-display text-2xl text-ink">
+                {/* Arrow Button inside the Notch */}
+                <span className="absolute top-0 right-0 h-14 w-14 bg-accent text-white flex items-center justify-center rounded-bl-3xl transition-colors duration-300 font-bold group-hover:bg-accent-deep text-lg">
+                  ↗
+                </span>
+
+                <div className="hover-zoom rounded-2xl overflow-hidden mb-6">
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="aspect-[3/2] w-full object-cover zoom-target"
+                    />
+                  ) : (
+                    <div className={`aspect-[3/2] bg-gradient-to-br ${service.tone} zoom-target`} />
+                  )}
+                </div>
+
+                <div className="mt-2">
+                  <h3 className="font-display text-2xl text-ink font-medium">
                     {service.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-muted">
+                  <p className="mt-3 leading-relaxed text-muted text-sm">
                     {service.short}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-deep">
-                    Learn more <span aria-hidden>→</span>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-deep">
+                    Learn more <span>→</span>
                   </span>
                 </div>
               </Link>
             </Reveal>
           ))}
         </div>
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <Link
             href="/services"
-            className="inline-block rounded-full border border-line px-7 py-3.5 font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+            className="inline-block rounded-full border border-line px-8 py-3.5 font-semibold text-ink transition-colors hover:border-accent hover:text-accent bg-white shadow-sm"
           >
             View all services
           </Link>
         </div>
       </section>
 
-      {/* PROJECTS PREVIEW */}
-      <section className="bg-bg-alt py-24">
+      {/* SELECTED PROJECTS INTERACTIVE SHOWCASE */}
+      <section className="bg-[#0f0e0c] py-28 text-white border-y border-white/5">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-              <div className="max-w-xl">
-                <SectionLabel>Selected projects</SectionLabel>
-                <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl">
-                  Innovative designs, lasting impressions
-                </h2>
-              </div>
-              <Link
-                href="/projects"
-                className="font-semibold text-accent hover:text-accent-deep"
-              >
-                View all projects →
-              </Link>
+            <div className="max-w-2xl mb-16">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+                Selected projects
+              </span>
+              <h2 className="mt-5 font-display text-4xl text-white sm:text-5xl">
+                Innovative designs, lasting impressions
+              </h2>
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2">
-            {PROJECTS.slice(0, 4).map((project, i) => (
-              <Reveal key={project.title} delay={(i % 2) * 120}>
-                <Link href="/projects" className="group relative block overflow-hidden rounded-2xl">
-                  <div
-                    className={`aspect-[16/10] bg-gradient-to-br ${project.tone} transition-transform duration-700 group-hover:scale-105`}
-                  />
-                  <div className="absolute inset-0 flex flex-col justify-between p-8">
-                    <span className="font-display text-5xl text-white/80">
-                      {project.no}
-                    </span>
-                    <div>
-                      <p className="text-sm uppercase tracking-widest text-white/70">
-                        {project.tag}
-                      </p>
-                      <h3 className="font-display text-3xl text-white">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          {/* Side-by-side Project Showcase */}
+          <ProjectShowcase projects={PROJECTS} />
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
         <Reveal>
           <Testimonials items={TESTIMONIALS} />
         </Reveal>

@@ -4,6 +4,7 @@ export type Service = {
   short: string;
   body: string;
   tone: string;
+  image?: string;
 };
 
 export type Project = {
@@ -11,6 +12,7 @@ export type Project = {
   title: string;
   tag: string;
   tone: string;
+  image?: string;
 };
 
 export type TeamMember = {
@@ -40,6 +42,7 @@ export const SERVICES: Service[] = [
       "Homes that balance warmth and function — living rooms, bedrooms, kitchens, and everything between.",
     body: "We design homes around the way you actually live. From the first mood board to the final cushion, every room is shaped to your rhythm, your light, and your taste — warm, functional, and unmistakably yours.",
     tone: "from-[#b69b73] to-[#8a6f48]",
+    image: "/service-residential.jpg",
   },
   {
     slug: "commercial",
@@ -48,6 +51,7 @@ export const SERVICES: Service[] = [
       "Offices, retail, and hospitality spaces designed to impress clients and energize teams.",
     body: "Spaces that work as hard as you do. We craft offices, stores, and hospitality interiors that reflect your brand, support your team, and leave a lasting impression on everyone who walks in.",
     tone: "from-[#9a8a76] to-[#6b5d4c]",
+    image: "/service-commercial.jpg",
   },
   {
     slug: "space-planning",
@@ -56,6 +60,7 @@ export const SERVICES: Service[] = [
       "Smart floor plans that maximize every square foot, with flow and natural light at the core.",
     body: "Great interiors start with a great plan. We study how you move, gather, and rest, then design layouts that make every square foot count — with flow, natural light, and storage at the heart of it.",
     tone: "from-[#c2a888] to-[#947a58]",
+    image: "/service-space.jpg",
   },
   {
     slug: "turnkey",
@@ -64,6 +69,7 @@ export const SERVICES: Service[] = [
       "We handle design, sourcing, and execution end-to-end. You get the keys to a finished space.",
     body: "One team, start to finish. We manage design, sourcing, vendors, and on-site execution so you don't have to coordinate a thing. You simply walk into a finished, move-in-ready space.",
     tone: "from-[#a8927a] to-[#71604c]",
+    image: "/service-residential.jpg",
   },
   {
     slug: "custom-furniture",
@@ -72,16 +78,17 @@ export const SERVICES: Service[] = [
       "Bespoke pieces and curated styling that give your space a signature, one-of-a-kind character.",
     body: "The finishing touch that makes a space sing. We design bespoke furniture and curate styling — art, textiles, lighting — that give your interiors a signature character no catalogue can match.",
     tone: "from-[#b9a17f] to-[#86714f]",
+    image: "/service-residential.jpg",
   },
 ];
 
 export const PROJECTS: Project[] = [
-  { no: "01", title: "Gupta Residence", tag: "Drawing Room", tone: "from-[#7a6248] to-[#3f3327]" },
-  { no: "02", title: "Aurelia Cafe", tag: "Hospitality", tone: "from-[#8a7256] to-[#4a3a2b]" },
-  { no: "03", title: "Bliss Studio", tag: "Makeup & Salon", tone: "from-[#9d8466] to-[#534333]" },
-  { no: "04", title: "The Plant Story", tag: "Retail", tone: "from-[#6f7a5a] to-[#3a4030]" },
-  { no: "05", title: "Sunrise Villa", tag: "Residential", tone: "from-[#b59a76] to-[#6b5742]" },
-  { no: "06", title: "Meridian Offices", tag: "Commercial", tone: "from-[#8a7d6a] to-[#4a4135]" },
+  { no: "01", title: "Gupta Residence", tag: "Drawing Room", tone: "from-[#7a6248] to-[#3f3327]", image: "/project-gupta.jpg" },
+  { no: "02", title: "Aurelia Cafe", tag: "Hospitality", tone: "from-[#8a7256] to-[#4a3a2b]", image: "/project-cafe.jpg" },
+  { no: "03", title: "Bliss Studio", tag: "Makeup & Salon", tone: "from-[#9d8466] to-[#534333]", image: "/project-bliss.jpg" },
+  { no: "04", title: "The Plant Story", tag: "Retail", tone: "from-[#6f7a5a] to-[#3a4030]", image: "/project-cafe.jpg" },
+  { no: "05", title: "Sunrise Villa", tag: "Residential", tone: "from-[#b59a76] to-[#6b5742]", image: "/project-gupta.jpg" },
+  { no: "06", title: "Meridian Offices", tag: "Commercial", tone: "from-[#8a7d6a] to-[#4a4135]", image: "/project-bliss.jpg" },
 ];
 
 export const TEAM: TeamMember[] = [
