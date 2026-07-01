@@ -42,7 +42,7 @@ export const SERVICES: Service[] = [
       "Homes that balance warmth and function — living rooms, bedrooms, kitchens, and everything between.",
     body: "We design homes around the way you actually live. From the first mood board to the final cushion, every room is shaped to your rhythm, your light, and your taste — warm, functional, and unmistakably yours.",
     tone: "from-[#b69b73] to-[#8a6f48]",
-    image: "/service-residential.jpg",
+    image: "/service_residential_cutout.png",
   },
   {
     slug: "commercial",
@@ -51,16 +51,16 @@ export const SERVICES: Service[] = [
       "Offices, retail, and hospitality spaces designed to impress clients and energize teams.",
     body: "Spaces that work as hard as you do. We craft offices, stores, and hospitality interiors that reflect your brand, support your team, and leave a lasting impression on everyone who walks in.",
     tone: "from-[#9a8a76] to-[#6b5d4c]",
-    image: "/service-commercial.jpg",
+    image: "/service_commercial_cutout.png",
   },
   {
     slug: "space-planning",
-    title: "Space Planning & Layout",
+    title: "Space Planning & Layout Design",
     short:
       "Smart floor plans that maximize every square foot, with flow and natural light at the core.",
     body: "Great interiors start with a great plan. We study how you move, gather, and rest, then design layouts that make every square foot count — with flow, natural light, and storage at the heart of it.",
     tone: "from-[#c2a888] to-[#947a58]",
-    image: "/service-space.jpg",
+    image: "/service_space_cutout.png",
   },
   {
     slug: "turnkey",
@@ -69,7 +69,7 @@ export const SERVICES: Service[] = [
       "We handle design, sourcing, and execution end-to-end. You get the keys to a finished space.",
     body: "One team, start to finish. We manage design, sourcing, vendors, and on-site execution so you don't have to coordinate a thing. You simply walk into a finished, move-in-ready space.",
     tone: "from-[#a8927a] to-[#71604c]",
-    image: "/service-residential.jpg",
+    image: "/service_turnkey_cutout.png",
   },
   {
     slug: "custom-furniture",
@@ -78,7 +78,7 @@ export const SERVICES: Service[] = [
       "Bespoke pieces and curated styling that give your space a signature, one-of-a-kind character.",
     body: "The finishing touch that makes a space sing. We design bespoke furniture and curate styling — art, textiles, lighting — that give your interiors a signature character no catalogue can match.",
     tone: "from-[#b9a17f] to-[#86714f]",
-    image: "/service-residential.jpg",
+    image: "/service_furniture_cutout.png",
   },
 ];
 
@@ -177,9 +177,9 @@ export const ROADMAP = [
 ];
 
 export const STATS = [
-  { end: 12, suffix: "+", label: "Design specialists" },
-  { end: 9, suffix: "+", label: "Years of experience" },
-  { end: 180, suffix: "+", label: "Projects delivered" },
+  { end: 9, suffix: "+", label: "design specialists" },
+  { end: 10, suffix: "+", label: "years of experience" },
+  { end: 94, suffix: "+", label: "projects done" },
 ];
 
 export const NAV_LINKS = [

@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="bg-bg text-ink">
       {/* HERO SECTION WITH IMAGE BACKDROP */}
-      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-36 pb-36 lg:pb-44 isolate">
+      <section className="relative min-h-screen flex flex-col justify-between overflow-x-hidden pt-36 pb-28 lg:pb-36 isolate">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all duration-700"
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         {/* Floating cards overlapping transition */}
-        <div className="absolute bottom-0 inset-x-0 translate-y-1/2 z-20 px-6">
+        <div className="relative z-20 px-6 mt-12 mb-28 md:absolute md:bottom-28 md:inset-x-0 md:mt-0 md:mb-0">
           <div className="mx-auto max-w-7xl grid gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.title} delay={i * 120} type="scale">
@@ -102,112 +102,224 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* Marquee at the very bottom edge of hero */}
+        <div className="absolute bottom-0 inset-x-0 z-10">
+          <Marquee items={["Who we are", "What we offer", "Selected projects"]} />
+        </div>
       </section>
-
-      <div className="h-28" /> {/* Offset spacer for floating cards */}
-
-      <Marquee items={["Who we are", "What we offer", "Selected projects"]} />
 
       {/* ABOUT PREVIEW */}
-      <section className="bg-bg-alt py-24 border-y border-line/40">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:px-10">
-          <Reveal>
-            <SectionLabel>Who we are</SectionLabel>
-            <h2 className="mt-5 font-display text-4xl leading-tight text-ink sm:text-5xl">
-              We aim to turn every space into something inspiring, functional,
-              and truly personal.
-            </h2>
-            <p className="mt-6 max-w-md leading-relaxed text-muted">
-              We blend thoughtful planning with craftsmanship, designing spaces
-              that work as beautifully as they look. Every decision is rooted in
-              how you live.
-            </p>
-            <Link
-              href="/about"
-              className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deep group"
-            >
-              More about us 
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Link>
-          </Reveal>
+      <section className="bg-white py-24 border-y border-line/40 relative">
+        {/* Inline SVG ClipPath for Folder-Tab Shape */}
+        <svg className="absolute w-0 h-0" aria-hidden="true">
+          <defs>
+            <clipPath id="folder-tab-clip" clipPathUnits="objectBoundingBox">
+              <path d="M 0,0.18 C 0,0.12 0.03,0.12 0.06,0.12 L 0.28,0.12 C 0.32,0.12 0.34,0.06 0.37,0 L 0.92,0 C 0.96,0 1,0.04 1,0.1 L 1,0.92 C 1,0.97 0.96,1 0.92,1 L 0.08,1 C 0.04,1 0,0.97 0,0.92 Z" />
+            </clipPath>
+          </defs>
+        </svg>
 
-          <Reveal delay={150}>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-1">
-              {STATS.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-line bg-bg p-8 text-center shadow-[0_4px_20px_rgb(0,0,0,0.015)]"
-                >
-                  <p className="font-display text-5xl text-accent font-semibold">
-                    <Counter end={stat.end} suffix={stat.suffix} />
-                  </p>
-                  <p className="mt-2 text-xs uppercase tracking-widest text-muted font-medium">
-                    {stat.label}
+        {/* Top Header Block */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Pill Badge */}
+          <div className="lg:col-span-3 flex lg:justify-start">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2.5 bg-white text-xs font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span>WHO WE ARE</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Heading and Subsections */}
+          <div className="lg:col-span-9">
+            <Reveal delay={100}>
+              <h2 className="font-display text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight max-w-4xl">
+                We aim to turn every space into something inspiring, functional, and truly personal.
+              </h2>
+            </Reveal>
+
+            {/* Sub-columns under the main heading */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
+              <Reveal delay={200}>
+                <div>
+                  <h3 className="font-display text-xl font-semibold text-ink mb-3">Our Approach</h3>
+                  <p className="leading-relaxed text-muted text-sm sm:text-base">
+                    It is rooted in a deep understanding of our clients&apos; lifestyles, aspirations, and practical needs — resulting in interiors that are both purposeful and personal. Every project we take on is uniquely crafted, with no repetitions or templates.
                   </p>
                 </div>
-              ))}
+              </Reveal>
+
+              <Reveal delay={250}>
+                <div>
+                  <h3 className="font-display text-xl font-semibold text-ink mb-3">Our Beliefs</h3>
+                  <p className="leading-relaxed text-muted text-sm sm:text-base">
+                    We believe in originality, authenticity, and design that aesthetically reflects your vision.
+                  </p>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
+        </div>
+
+        {/* Bottom Visual Block (Left Image + Right Stat Cards & Sub-image) */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 mt-16 lg:mt-24 items-stretch">
+          {/* Left Column: Tab-shaped Image */}
+          <div className="lg:col-span-7 flex flex-col justify-stretch">
+            <Reveal type="scale" delay={300} className="h-full flex">
+              <div 
+                className="w-full h-full min-h-[380px] md:min-h-[520px] bg-neutral-100 overflow-hidden"
+                style={{ clipPath: "url(#folder-tab-clip)" }}
+              >
+                <img
+                  src="/about_interior_main.png"
+                  alt="Modern Dining Room with Yellow Chairs"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: 2x2 Grid */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Card 1: DESIGN EXPERTISE */}
+            <Reveal type="scale" delay={350} className="h-full">
+              <div className="rounded-[2.5rem] bg-[#f5f5f3] p-8 sm:p-10 flex flex-col h-full hover:shadow-lg transition-all duration-300">
+                <div className="w-full">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink">
+                    DESIGN EXPERTISE
+                  </span>
+                  <div className="border-b border-black/10 w-full mt-2.5 mb-8" />
+                </div>
+                <div className="mt-auto">
+                  <div className="font-sans text-5xl sm:text-6xl font-semibold text-ink tracking-tight flex items-baseline">
+                    <Counter end={9} suffix="+" />
+                  </div>
+                  <p className="mt-3 text-xs text-neutral-500 font-medium lowercase tracking-wide">
+                    design specialists
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 2: LOCAL EXPERTISE */}
+            <Reveal type="scale" delay={400} className="h-full">
+              <div className="rounded-[2.5rem] bg-[#f5f5f3] p-8 sm:p-10 flex flex-col h-full hover:shadow-lg transition-all duration-300">
+                <div className="w-full">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink">
+                    LOCAL EXPERTISE
+                  </span>
+                  <div className="border-b border-black/10 w-full mt-2.5 mb-8" />
+                </div>
+                <div className="mt-auto">
+                  <div className="font-sans text-5xl sm:text-6xl font-semibold text-ink tracking-tight flex items-baseline">
+                    <Counter end={10} suffix="+" />
+                  </div>
+                  <p className="mt-3 text-xs text-neutral-500 font-medium lowercase tracking-wide">
+                    years of experience
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 3: OUR IMPACT */}
+            <Reveal type="scale" delay={450} className="h-full">
+              <div className="rounded-[2.5rem] bg-[#f5f5f3] p-8 sm:p-10 flex flex-col h-full hover:shadow-lg transition-all duration-300">
+                <div className="w-full">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink">
+                    OUR IMPACT
+                  </span>
+                  <div className="border-b border-black/10 w-full mt-2.5 mb-8" />
+                </div>
+                <div className="mt-auto">
+                  <div className="font-sans text-5xl sm:text-6xl font-semibold text-ink tracking-tight flex items-baseline">
+                    <Counter end={94} suffix="+" />
+                  </div>
+                  <p className="mt-3 text-xs text-neutral-500 font-medium lowercase tracking-wide">
+                    projects done
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Card 4: Sub Image */}
+            <Reveal type="scale" delay={500} className="h-full flex">
+              <div className="rounded-[2.5rem] overflow-hidden w-full h-full min-h-[220px] bg-neutral-100">
+                <img
+                  src="/about_interior_sub.png"
+                  alt="Modern Restaurant Bar Counter"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* SERVICES PREVIEW WITH NOTCHED CARDS */}
-      <section className="mx-auto max-w-7xl px-6 py-28 lg:px-10">
-        <Reveal>
-          <div className="mx-auto max-w-2xl text-center">
-            <SectionLabel>What we offer</SectionLabel>
-            <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl leading-tight">
-              Take a brief look at some of the services we offer
-            </h2>
+      {/* SERVICES PREVIEW */}
+      <section className="bg-[#f5f2eb] py-28 border-y border-line/40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <SectionLabel>What we offer</SectionLabel>
+              <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl leading-tight">
+                Take a brief look at some of the services we offer
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-6 gap-6 lg:gap-8">
+            {SERVICES.slice(0, 5).map((service, i) => {
+              const isThreeCol = i < 3;
+              const spanClass = isThreeCol ? "md:col-span-2" : "md:col-span-3";
+              return (
+                <Reveal key={service.slug} delay={i * 100} type="scale" className={spanClass}>
+                  <Link
+                    href="/services"
+                    className="group relative flex flex-col justify-between overflow-visible rounded-[2.5rem] bg-white p-8 sm:p-10 min-h-[380px] md:min-h-[440px] shadow-[0_4px_30px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-xl border border-black/5"
+                  >
+                    {/* Circular top-right notch cutout */}
+                    <div className="absolute top-0 right-0 w-0 h-0 z-10">
+                      {/* Cream background circle (notch) */}
+                      <div className="absolute -top-8 -right-8 w-16 h-16 bg-[#f5f2eb] rounded-full transition-colors duration-500" />
+                      {/* White arrow button */}
+                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-white border border-black/10 text-ink rounded-full flex items-center justify-center font-bold text-sm shadow-sm transition-transform duration-300 group-hover:scale-110">
+                        ↗
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <div className="pt-2 pr-12">
+                      <h3 className="font-sans text-xl sm:text-2xl font-semibold leading-tight text-ink tracking-tight">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Image */}
+                    {service.image && (
+                      <div className="w-full mt-auto flex justify-center items-end max-h-[220px] md:max-h-[260px] overflow-hidden rounded-b-[2.5rem]">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="max-w-[90%] md:max-w-full max-h-[200px] md:max-h-[240px] object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    )}
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
-        </Reveal>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.slice(0, 3).map((service, i) => (
-            <Reveal key={service.slug} delay={(i % 3) * 120} type="scale">
-              <Link
-                href="/services"
-                className="notched-card group relative block h-full overflow-hidden rounded-2xl border border-line bg-bg-alt p-8 pb-10 shadow-[0_4px_30px_rgb(0,0,0,0.01)] transition-all duration-300 hover:shadow-2xl hover:border-accent hover:-translate-y-1"
-              >
-                {/* Arrow Button inside the Notch */}
-                <span className="absolute top-0 right-0 h-14 w-14 bg-accent text-white flex items-center justify-center rounded-bl-3xl transition-colors duration-300 font-bold group-hover:bg-accent-deep text-lg">
-                  ↗
-                </span>
-
-                <div className="hover-zoom rounded-2xl overflow-hidden mb-6">
-                  {service.image ? (
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="aspect-[3/2] w-full object-cover zoom-target"
-                    />
-                  ) : (
-                    <div className={`aspect-[3/2] bg-gradient-to-br ${service.tone} zoom-target`} />
-                  )}
-                </div>
-
-                <div className="mt-2">
-                  <h3 className="font-display text-2xl text-ink font-medium">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 leading-relaxed text-muted text-sm">
-                    {service.short}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-deep">
-                    Learn more <span>→</span>
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-14 text-center">
-          <Link
-            href="/services"
-            className="inline-block rounded-full border border-line px-8 py-3.5 font-semibold text-ink transition-colors hover:border-accent hover:text-accent bg-white shadow-sm"
-          >
-            View all services
-          </Link>
+          <div className="mt-16 text-center">
+            <Link
+              href="/services"
+              className="inline-block rounded-full border border-line px-8 py-3.5 font-semibold text-ink transition-all hover:border-accent hover:text-accent bg-white shadow-sm hover:shadow"
+            >
+              View all services
+            </Link>
+          </div>
         </div>
       </section>
 
