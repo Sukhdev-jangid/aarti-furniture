@@ -120,7 +120,13 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
-            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#a8927a] to-[#5f4b32] shadow-xl" />
+            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-bg-alt shadow-xl">
+              <img
+                src="/founder.png"
+                alt="Aarti Sharma - Founder & Principal Designer"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </Reveal>
           <Reveal delay={150}>
             <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
@@ -163,7 +169,17 @@ export default function AboutPage() {
             {TEAM.map((member, i) => (
               <Reveal key={member.name} delay={(i % 3) * 120}>
                 <div className="overflow-hidden rounded-2xl border border-line bg-bg">
-                  <div className={`aspect-square bg-gradient-to-br ${member.tone}`} />
+                  <div className="aspect-square relative overflow-hidden bg-bg-alt">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                      />
+                    ) : (
+                      <div className={`w-full h-full bg-gradient-to-br ${member.tone}`} />
+                    )}
+                  </div>
                   <div className="p-6">
                     <h3 className="font-display text-xl text-ink">
                       {member.name}

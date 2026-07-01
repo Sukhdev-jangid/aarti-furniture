@@ -24,9 +24,20 @@ export default function ProjectsPage() {
           {PROJECTS.map((project, i) => (
             <Reveal key={project.title} delay={(i % 2) * 120}>
               <div className="group relative overflow-hidden rounded-2xl">
-                <div
-                  className={`aspect-[16/10] bg-gradient-to-br ${project.tone} transition-transform duration-700 group-hover:scale-105`}
-                />
+                <div className="aspect-[16/10] relative overflow-hidden transition-transform duration-700 group-hover:scale-105 bg-bg-alt">
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/30" />
+                    </>
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${project.tone}`} />
+                  )}
+                </div>
                 <div className="absolute inset-0 flex flex-col justify-between p-8">
                   <span className="font-display text-5xl text-white/80">
                     {project.no}

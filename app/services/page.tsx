@@ -30,9 +30,17 @@ export default function ServicesPage() {
                   i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <div
-                  className={`aspect-[4/3] rounded-[2rem] bg-gradient-to-br ${service.tone} shadow-xl`}
-                />
+                <div className="aspect-[4/3] rounded-[2.5rem] bg-white border border-black/5 shadow-md flex items-center justify-center p-8 sm:p-12 overflow-hidden">
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="max-h-full max-w-full object-contain transition-transform duration-700 hover:scale-105"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${service.tone}`} />
+                  )}
+                </div>
                 <div>
                   <span className="font-display text-4xl text-accent/40">
                     {String(i + 1).padStart(2, "0")}
