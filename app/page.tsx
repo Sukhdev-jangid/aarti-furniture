@@ -3,7 +3,7 @@ import Reveal from "./components/Reveal";
 import Marquee from "./components/Marquee";
 import Counter from "./components/Counter";
 import Testimonials from "./components/Testimonials";
-import CTASection from "./components/CTASection";
+import HomeEnquiry from "./components/HomeEnquiry";
 import ProjectShowcase from "./components/ProjectShowcase";
 import { SERVICES, PROJECTS, TESTIMONIALS, STATS } from "./lib/data";
 
@@ -349,7 +349,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <CTASection />
+      <HomeEnquiry />
     </div>
   );
 }
