@@ -95,29 +95,22 @@ export default function Footer() {
             </div>
 
             {/* Middle Column: Links columns (Left Aligned, Semi-bold) */}
-            <div className="grid grid-cols-2 gap-6 lg:col-span-4 lg:border-r lg:border-black/10 lg:px-12 text-sm font-semibold text-neutral-800">
-              <div className="flex flex-col gap-4">
-                <Link href="/about" className="hover:text-accent transition-colors">
-                  About Us
-                </Link>
-                <Link href="/services" className="hover:text-accent transition-colors">
-                  Our services
-                </Link>
-                <Link href="/projects" className="hover:text-accent transition-colors">
-                  Our Projects
-                </Link>
-              </div>
-              <div className="flex flex-col gap-4">
-                <Link href="#" className="hover:text-accent transition-colors">
-                  Terms & Conditions
-                </Link>
-                <Link href="#" className="hover:text-accent transition-colors">
-                  Support Center
-                </Link>
-                <Link href="/contact" className="hover:text-accent transition-colors">
-                  Contact
-                </Link>
-              </div>
+            <div className="flex flex-col gap-4 lg:col-span-4 lg:border-r lg:border-black/10 lg:px-12 text-sm font-semibold text-neutral-800">
+              <Link href="/about" className="hover:text-accent transition-colors">
+                About Us
+              </Link>
+              <Link href="/services" className="hover:text-accent transition-colors">
+                Our services
+              </Link>
+              <Link href="/projects" className="hover:text-accent transition-colors">
+                Our Projects
+              </Link>
+              <Link href="/terms" className="hover:text-accent transition-colors">
+                Terms & Conditions
+              </Link>
+              <Link href="/contact" className="hover:text-accent transition-colors">
+                Contact
+              </Link>
             </div>
 
             {/* Right Column: Large underlined contacts & social links */}
