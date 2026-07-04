@@ -132,8 +132,8 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT = {
-  phone: "+91 82096 48144",
-  phoneHref: "tel:+918209648144",
+  phone: "+91 63753 45407",
+  phoneHref: "tel:+916375345407",
   email: "hello@aartifurniture.com",
   location: "Jaipur, Rajasthan, India",
 };

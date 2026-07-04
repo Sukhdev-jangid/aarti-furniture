@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import FloatingButtons from "./components/FloatingButtons";
 
 const display = Cormorant_Garamond({
   variable: "--font-display",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <Footer />
+        <FloatingButtons />
       </body>
     </html>
   );
