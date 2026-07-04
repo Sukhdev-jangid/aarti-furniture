@@ -9,7 +9,7 @@ export default function Marquee({
 }) {
   const sequence = [...items, ...items];
   return (
-    <div className="overflow-hidden border-y border-line bg-bg-alt py-5">
+    <div className="overflow-hidden border-y border-line bg-bg-alt py-3">
       <div className={`marquee-track ${reverse ? "reverse" : ""}`}>
         {[0, 1].map((dup) => (
           <div key={dup} className="flex shrink-0 items-center">

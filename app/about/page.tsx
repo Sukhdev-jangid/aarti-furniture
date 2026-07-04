@@ -4,7 +4,7 @@ import Reveal from "../components/Reveal";
 import Counter from "../components/Counter";
 import PageBanner from "../components/PageBanner";
 import CTASection from "../components/CTASection";
-import { ROADMAP, TEAM } from "../lib/data";
+import { ROADMAP, TEAM, SERVICES } from "../lib/data";
 
 export const metadata: Metadata = {
   title: "About Us — Aarti Furniture",
@@ -25,6 +25,7 @@ export default function AboutPage() {
         title="About us"
         subtitle="A design-and-execution studio shaping spaces that feel inspiring, functional, and personal."
         ticker="About us"
+        marqueeItems={SERVICES.map((s) => s.title)}
       />
 
       {/* INTRO */}

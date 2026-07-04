@@ -105,7 +105,7 @@ export default function Home() {
 
         {/* Marquee at the very bottom edge of hero */}
         <div className="absolute bottom-0 inset-x-0 z-10">
-          <Marquee items={["Who we are", "What we offer", "Selected projects"]} />
+          <Marquee items={SERVICES.map((s) => s.title)} />
         </div>
       </section>
 

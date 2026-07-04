@@ -18,6 +18,7 @@ export default function ServicesPage() {
         title="Our services"
         subtitle="From a single room to a full turnkey fit-out, here's how we can help bring your space to life."
         ticker="What we offer"
+        marqueeItems={SERVICES.map((s) => s.title)}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">

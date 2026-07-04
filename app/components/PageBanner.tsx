@@ -6,10 +6,12 @@ export default function PageBanner({
   title,
   subtitle,
   ticker,
+  marqueeItems,
 }: {
   title: string;
   subtitle?: string;
   ticker: string;
+  marqueeItems?: string[];
 }) {
   return (
     <>
@@ -40,7 +42,7 @@ export default function PageBanner({
           )}
         </div>
       </section>
-      <Marquee items={[ticker, ticker, ticker]} />
+      <Marquee items={marqueeItems || [ticker, ticker, ticker]} />
     </>
   );
 }

@@ -17,6 +17,7 @@ export default function ProjectsPage() {
         title="Our projects"
         subtitle="A look at some of the spaces we've designed and brought to life — innovative designs, lasting impressions."
         ticker="Selected projects"
+        marqueeItems={PROJECTS.map((p) => p.title)}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
