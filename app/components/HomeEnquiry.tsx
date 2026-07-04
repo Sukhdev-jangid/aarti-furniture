@@ -62,7 +62,7 @@ export default function HomeEnquiry() {
         {/* Floating White Card Form Container */}
         <div className="relative z-10 py-20 px-4 sm:px-8 lg:px-12 flex justify-center items-center">
           <Reveal type="scale" className="w-full max-w-4xl">
-            <div className="relative w-full bg-white/95 backdrop-blur-md rounded-[2.5rem] p-8 sm:p-12 lg:p-14 shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-black/5">
+            <div className="relative w-full bg-white/95 backdrop-blur-md rounded-[2.5rem] pt-8 px-8 pb-20 sm:pt-12 sm:px-12 sm:pb-28 lg:pt-14 lg:px-14 lg:pb-36 shadow-[0_25px_60px_rgba(0,0,0,0.3)] border border-black/5">
               
               {/* Blueprint watermark illustrations restricted to card rounded corners */}
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none z-0">
@@ -190,7 +190,7 @@ export default function HomeEnquiry() {
                                   setFormData({ ...formData, inquiry: item });
                                   setIsDropdownOpen(false);
                                 }}
-                                className={`px-6 py-3.5 text-sm text-left text-ink transition-colors cursor-pointer font-medium hover:bg-neutral-50 ${
+                                className={`px-6 py-2.5 text-sm text-left text-ink transition-colors cursor-pointer font-medium hover:bg-neutral-50 ${
                                   formData.inquiry === item ? "text-[#cea86f] bg-amber-50/10" : ""
                                 }`}
                               >
