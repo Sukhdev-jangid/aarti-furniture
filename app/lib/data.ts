@@ -37,49 +37,44 @@ export type Testimonial = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "residential",
-    title: "Residential Interior Design",
-    short:
-      "Homes that balance warmth and function — living rooms, bedrooms, kitchens, and everything between.",
-    body: "We design homes around the way you actually live. From the first mood board to the final cushion, every room is shaped to your rhythm, your light, and your taste — warm, functional, and unmistakably yours.",
+    slug: "wooden-furniture",
+    title: "Wooden Furniture",
+    short: "Bespoke wooden creations designed for elegance, durability, and timeless appeal.",
+    body: "Custom wooden furniture crafted by expert artisans using premium woods. From exquisite dining sets to sturdy beds and cabinets, we bring warmth and organic texture to your interiors with furniture that lasts generations.",
     tone: "from-[#b69b73] to-[#8a6f48]",
-    image: "/service_residential_cutout.png",
+    image: "/service_wooden_furniture.png",
   },
   {
-    slug: "commercial",
-    title: "Commercial Interior Design",
-    short:
-      "Offices, retail, and hospitality spaces designed to impress clients and energize teams.",
-    body: "Spaces that work as hard as you do. We craft offices, stores, and hospitality interiors that reflect your brand, support your team, and leave a lasting impression on everyone who walks in.",
+    slug: "aluminium-furniture",
+    title: "Aluminium Furniture",
+    short: "Modern, lightweight, and rust-free furniture solutions perfect for kitchens, offices, and outdoor spaces.",
+    body: "Highly durable and contemporary aluminium furniture designed to withstand moisture and wear. Ideal for modular kitchens, office workstations, and outdoor furniture, offering sleek aesthetics and low maintenance.",
     tone: "from-[#9a8a76] to-[#6b5d4c]",
-    image: "/service_commercial_cutout.png",
+    image: "/service_aluminium_furniture.png",
   },
   {
-    slug: "space-planning",
-    title: "Space Planning & Layout Design",
-    short:
-      "Smart floor plans that maximize every square foot, with flow and natural light at the core.",
-    body: "Great interiors start with a great plan. We study how you move, gather, and rest, then design layouts that make every square foot count — with flow, natural light, and storage at the heart of it.",
+    slug: "farma-door",
+    title: "Farma Door",
+    short: "Robust and stylish farma doors designed to offer security and enhanced aesthetic appeal.",
+    body: "Premium farma doors engineered for structural strength and modern design. Crafted from high-grade materials, these doors provide excellent security and durability while complementing your home or office decor.",
     tone: "from-[#c2a888] to-[#947a58]",
-    image: "/service_space_cutout.png",
+    image: "/service_farma_door.png",
   },
   {
-    slug: "turnkey",
-    title: "Turnkey Interior Solutions",
-    short:
-      "We handle design, sourcing, and execution end-to-end. You get the keys to a finished space.",
-    body: "One team, start to finish. We manage design, sourcing, vendors, and on-site execution so you don't have to coordinate a thing. You simply walk into a finished, move-in-ready space.",
+    slug: "gi-grid-ceiling",
+    title: "G.I Grid Ceiling",
+    short: "Durable suspended G.I grid ceiling solutions for commercial and residential spaces.",
+    body: "High-quality G.I grid false ceilings that offer excellent acoustic properties, fire resistance, and access to overhead services. Perfect for offices, showrooms, and modern homes seeking a clean, industrial look.",
     tone: "from-[#a8927a] to-[#71604c]",
-    image: "/service_turnkey_cutout.png",
+    image: "/service_gi_grid_ceiling.png",
   },
   {
-    slug: "custom-furniture",
-    title: "Custom Furniture & Styling",
-    short:
-      "Bespoke pieces and curated styling that give your space a signature, one-of-a-kind character.",
-    body: "The finishing touch that makes a space sing. We design bespoke furniture and curate styling — art, textiles, lighting — that give your interiors a signature character no catalogue can match.",
+    slug: "puff-ceiling",
+    title: "Puff Ceiling",
+    short: "Insulated PUF panel ceilings designed for superior temperature control and acoustic insulation.",
+    body: "Energy-efficient polyurethane foam (PUF) ceiling panels that provide exceptional thermal insulation. Perfect for keeping spaces cool in the summer and warm in the winter, reducing your energy bills and enhancing comfort.",
     tone: "from-[#b9a17f] to-[#86714f]",
-    image: "/service_furniture_cutout.png",
+    image: "/service_puff_ceiling.png",
   },
 ];
 

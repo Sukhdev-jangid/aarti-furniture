@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import Reveal from "./Reveal";
 
 const INQUIRIES = [
-  "Residential Interior Design",
-  "Commercial Interior Design",
-  "Space Planning & Layout",
-  "Turnkey Solutions",
-  "Custom Furniture & Styling",
+  "Wooden Furniture",
+  "Aluminium Furniture",
+  "Farma Door",
+  "G.I Grid Ceiling",
+  "Puff Ceiling",
 ];
 
 export default function HomeEnquiry() {
@@ -104,7 +104,7 @@ export default function HomeEnquiry() {
                   <form onSubmit={handleSubmit} className="w-full">
                     {/* Heading */}
                     <h2 className="font-display text-3xl sm:text-4xl text-ink font-semibold text-center tracking-tight leading-tight max-w-2xl mx-auto mb-10">
-                      Get specialist advice for residential or commercial property
+                      Get specialist advice for your furniture & ceiling projects
                     </h2>
 
                     {/* Inputs Grid */}

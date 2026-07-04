@@ -18,7 +18,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   title: "Aarti Furniture — Thoughtful Interior Design & Execution",
   description:
-    "Aarti Furniture crafts personalized, functional, and inspiring spaces. Residential and commercial interior design, space planning, turnkey solutions, and custom furniture.",
+    "Aarti Furniture provides premium Wooden Furniture, Aluminium Furniture, Farma Doors, G.I Grid Ceilings, and Puff Ceilings.",
 };
 
 export default function RootLayout({

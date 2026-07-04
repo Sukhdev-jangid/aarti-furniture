@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 const INQUIRIES = [
-  "Residential Interior Design",
-  "Commercial Interior Design",
-  "Space Planning & Layout",
-  "Turnkey Solutions",
-  "Custom Furniture & Styling",
+  "Wooden Furniture",
+  "Aluminium Furniture",
+  "Farma Door",
+  "G.I Grid Ceiling",
+  "Puff Ceiling",
   "Something else",
 ];
 

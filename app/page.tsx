@@ -43,7 +43,7 @@ export default function Home() {
         {/* Overlay scrim */}
         <div className="absolute inset-0 -z-10 bg-black/55 backdrop-blur-[1px]" />
 
-        <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 flex-grow flex flex-col justify-center">
+        <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 flex-grow flex flex-col justify-center md:pb-72 lg:pb-80">
           {/* Main Title Block */}
           <div className="text-center max-w-4xl mx-auto mt-16 mb-8">
             <Reveal type="scale">

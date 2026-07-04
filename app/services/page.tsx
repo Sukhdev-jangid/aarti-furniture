@@ -8,7 +8,7 @@ import { SERVICES } from "../lib/data";
 export const metadata: Metadata = {
   title: "Our Services — Aarti Furniture",
   description:
-    "Residential and commercial interior design, space planning, turnkey solutions, and custom furniture & styling.",
+    "Explore our high-quality solutions: Wooden Furniture, Aluminium Furniture, Farma Doors, G.I Grid Ceilings, and Puff Ceilings.",
 };
 
 export default function ServicesPage() {
