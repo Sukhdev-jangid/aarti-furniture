@@ -28,7 +28,7 @@ export default function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 p-4 transition-all duration-300 md:p-6">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between px-6 py-3 transition-all duration-500 rounded-full border ${
+        className={`mx-auto flex max-w-7xl items-center justify-between px-6 py-3 transition-all duration-500 rounded-full border ${
           scrolled
             ? "bg-white/95 border-line shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur"
             : "bg-white/90 border-transparent shadow-[0_4px_20px_rgb(0,0,0,0.02)] backdrop-blur-sm"
