@@ -7,7 +7,7 @@ import { PROJECTS } from "../lib/data";
 export const metadata: Metadata = {
   title: "Our Projects — Aarti Furniture",
   description:
-    "A selection of residential, commercial, and hospitality interiors designed and delivered by Aarti Furniture.",
+    "Explore our featured projects including Ipca Laboratories Ltd, Aarti Industries, Cosmos Impex India Pvt Ltd, and Home & Office Projects.",
 };
 
 export default function ProjectsPage() {

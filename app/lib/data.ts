@@ -79,12 +79,10 @@ export const SERVICES: Service[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  { no: "01", title: "Gupta Residence", tag: "Drawing Room", tone: "from-[#7a6248] to-[#3f3327]", image: "/project-gupta.jpg" },
-  { no: "02", title: "Aurelia Cafe", tag: "Hospitality", tone: "from-[#8a7256] to-[#4a3a2b]", image: "/project-cafe.jpg" },
-  { no: "03", title: "Bliss Studio", tag: "Makeup & Salon", tone: "from-[#9d8466] to-[#534333]", image: "/project-bliss.jpg" },
-  { no: "04", title: "The Plant Story", tag: "Retail", tone: "from-[#6f7a5a] to-[#3a4030]", image: "/project-cafe.jpg" },
-  { no: "05", title: "Sunrise Villa", tag: "Residential", tone: "from-[#b59a76] to-[#6b5742]", image: "/project-gupta.jpg" },
-  { no: "06", title: "Meridian Offices", tag: "Commercial", tone: "from-[#8a7d6a] to-[#4a4135]", image: "/project-bliss.jpg" },
+  { no: "01", title: "Ipca Laboratories Ltd", tag: "Laboratory Fit-out", tone: "from-[#7a6248] to-[#3f3327]", image: "/project-ipca.png" },
+  { no: "02", title: "Aarti Industries", tag: "Corporate Office", tone: "from-[#8a7256] to-[#4a3a2b]", image: "/project-aarti-industries.png" },
+  { no: "03", title: "Cosmos Impex India Pvt Ltd", tag: "Industrial Showroom", tone: "from-[#9d8466] to-[#534333]", image: "/project-cosmos.png" },
+  { no: "04", title: "Home & Office Projects", tag: "Custom Furniture", tone: "from-[#6f7a5a] to-[#3a4030]", image: "/project-home-office.png" },
 ];
 
 export const TEAM: TeamMember[] = [
