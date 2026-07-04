@@ -117,58 +117,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* FOUNDER */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
-          <Reveal>
-            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-bg-alt shadow-xl">
-              <img
-                src="/founder.png"
-                alt="Aarti Sharma - Founder & Principal Designer"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={150}>
-            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
-              Founder & CEO
-            </span>
-            <h2 className="mt-4 font-display text-4xl text-ink sm:text-5xl">
-              Aarti Sharma
-            </h2>
-            <div className="mt-6 space-y-5 leading-relaxed text-muted">
-              <p>
-                With a background in space planning and years of practice across
-                residential and commercial work, Aarti founded the studio to
-                bring design and execution under one roof — and to keep the
-                client at the centre of every decision.
-              </p>
-              <p>
-                A believer in honest collaboration and craft that lasts, Aarti
-                leads each project personally, from the first conversation to
-                the final walk-through.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* TEAM */}
+      {/* LEADERSHIP / FOUNDERS */}
       <section className="bg-bg-alt py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
-                Meet the team
+                Our Founders
               </span>
               <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl">
-                The people behind your space
+                Our Leadership
               </h2>
             </div>
           </Reveal>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-8 max-w-4xl mx-auto sm:grid-cols-2">
             {TEAM.map((member, i) => (
-              <Reveal key={member.name} delay={(i % 3) * 120}>
+              <Reveal key={member.name} delay={(i % 2) * 120}>
                 <div className="overflow-hidden rounded-2xl border border-line bg-bg">
                   <div className="aspect-square relative overflow-hidden bg-bg-alt">
                     {member.image ? (

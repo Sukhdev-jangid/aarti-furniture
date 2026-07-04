@@ -79,12 +79,8 @@ export const PROJECTS: Project[] = [
 ];
 
 export const TEAM: TeamMember[] = [
-  { name: "Aarti Sharma", role: "Founder & Principal Designer", tone: "from-[#a8927a] to-[#6b5742]", image: "/founder.png" },
-  { name: "Imran Sheikh", role: "Director of Architecture", tone: "from-[#8a7d6a] to-[#54493b]", image: "/team_imran.png" },
-  { name: "Priya Nair", role: "Lead Interior Stylist", tone: "from-[#b59a76] to-[#7a6248]", image: "/team_priya.png" },
-  { name: "Karan Singh", role: "Project & Execution Head", tone: "from-[#9d8a72] to-[#5f5040]", image: "/team_karan.png" },
-  { name: "Divya Rao", role: "Space Planning Specialist", tone: "from-[#bda584] to-[#85714e]", image: "/team_divya.png" },
-  { name: "Aman Gupta", role: "Client Relations", tone: "from-[#a39079] to-[#665544]", image: "/team_aman.png" },
+  { name: "Hari Bhai", role: "Founder", tone: "from-[#a8927a] to-[#6b5742]" },
+  { name: "Mahesh Bhai", role: "Co-Founder", tone: "from-[#8a7d6a] to-[#54493b]" },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

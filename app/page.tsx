@@ -324,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* SELECTED PROJECTS INTERACTIVE SHOWCASE */}
-      <section className="bg-[#0f0e0c] py-28 text-white border-y border-white/5">
+      <section className="relative isolate overflow-hidden bg-[#0f0e0c] py-28 text-white border-y border-white/5">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="max-w-2xl mb-16">

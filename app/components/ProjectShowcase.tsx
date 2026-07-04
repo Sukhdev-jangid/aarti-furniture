@@ -10,6 +10,21 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
 
   return (
     <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr] items-stretch min-h-[500px]">
+      {/* Dynamic Section Background Image - fills the parent relative section */}
+      <div className="absolute inset-0 -z-10 transition-all duration-1000 overflow-hidden pointer-events-none">
+        {projects[activeIndex].image ? (
+          <img
+            key={`bg-${activeIndex}`}
+            src={projects[activeIndex].image}
+            alt="background"
+            className="w-full h-full object-cover opacity-40 scale-105 transition-all duration-1000"
+          />
+        ) : (
+          <div className={`w-full h-full bg-gradient-to-br ${projects[activeIndex].tone} opacity-40 transition-all duration-1000`} />
+        )}
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
       {/* LEFT: Project List Index */}
       <div className="flex flex-col justify-center border-l border-line/40 pl-6 lg:pl-10 space-y-6">
         {projects.map((project, idx) => {
@@ -56,6 +71,7 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
         <div className="absolute inset-0 transition-all duration-700 hover-zoom w-full h-full">
           {projects[activeIndex].image ? (
             <img
+              key={`preview-${activeIndex}`}
               src={projects[activeIndex].image}
               alt={projects[activeIndex].title}
               className="absolute inset-0 w-full h-full object-cover zoom-target"
