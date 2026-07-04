@@ -22,13 +22,6 @@ export type TeamMember = {
   image?: string;
 };
 
-export type Post = {
-  category: string;
-  title: string;
-  excerpt: string;
-  tone: string;
-};
-
 export type Testimonial = {
   quote: string;
   name: string;
@@ -94,51 +87,6 @@ export const TEAM: TeamMember[] = [
   { name: "Aman Gupta", role: "Client Relations", tone: "from-[#a39079] to-[#665544]", image: "/team_aman.png" },
 ];
 
-export const POSTS: Post[] = [
-  {
-    category: "Tips & Tricks",
-    title: "Five small changes that make a room feel twice as large",
-    excerpt:
-      "Light, mirrors, and the right scale of furniture can transform how spacious a room feels — without knocking down a single wall.",
-    tone: "from-[#b69b73] to-[#7a6248]",
-  },
-  {
-    category: "Company Insights",
-    title: "How we plan a turnkey project from brief to handover",
-    excerpt:
-      "A look behind the scenes at our process — the steps, the decisions, and the people that take a project from idea to finished space.",
-    tone: "from-[#8a7256] to-[#4a3a2b]",
-  },
-  {
-    category: "Trends",
-    title: "Warm minimalism: the look defining homes this year",
-    excerpt:
-      "Pared-back, but never cold. We unpack the materials, tones, and textures behind the warm-minimalist look everyone's asking for.",
-    tone: "from-[#9d8466] to-[#534333]",
-  },
-  {
-    category: "Tips & Tricks",
-    title: "Choosing a colour palette you won't tire of",
-    excerpt:
-      "Trends fade, but a well-built palette lasts. Here's how we layer neutrals and accents for interiors that age gracefully.",
-    tone: "from-[#a8927a] to-[#71604c]",
-  },
-  {
-    category: "Office",
-    title: "Designing workspaces people actually want to return to",
-    excerpt:
-      "The post-remote office has to earn the commute. We share what makes a workspace feel worth showing up for.",
-    tone: "from-[#8a7d6a] to-[#4a4135]",
-  },
-  {
-    category: "Global",
-    title: "Lessons in craft from interiors around the world",
-    excerpt:
-      "From Japanese joinery to Mediterranean light, a few ideas we keep coming back to in our own work.",
-    tone: "from-[#bda584] to-[#85714e]",
-  },
-];
-
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
@@ -180,7 +128,6 @@ export const NAV_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Our Services", href: "/services" },
   { label: "Our Projects", href: "/projects" },
-  { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

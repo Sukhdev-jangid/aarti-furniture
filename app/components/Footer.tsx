@@ -106,9 +106,6 @@ export default function Footer() {
                 <Link href="/projects" className="hover:text-accent transition-colors">
                   Our Projects
                 </Link>
-                <Link href="/blog" className="hover:text-accent transition-colors">
-                  Blogs
-                </Link>
               </div>
               <div className="flex flex-col gap-4">
                 <Link href="#" className="hover:text-accent transition-colors">
