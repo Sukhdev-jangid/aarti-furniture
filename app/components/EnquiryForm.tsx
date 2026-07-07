@@ -13,10 +13,41 @@ const INQUIRIES = [
 
 export default function EnquiryForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      inquiry: formData.get("inquiry") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to submit enquiry. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -41,7 +72,7 @@ export default function EnquiryForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium text-ink" htmlFor="name">
-            Full name
+            Full name*
           </label>
           <input
             id="name"
@@ -52,8 +83,24 @@ export default function EnquiryForm() {
           />
         </div>
         <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium text-ink" htmlFor="email">
+            Email address*
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="your-email@example.com"
+            className="rounded-lg border border-line bg-bg-alt px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
+          />
+        </div>
+      </div>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-2">
           <label className="text-sm font-medium text-ink" htmlFor="phone">
-            Phone number
+            Phone number*
           </label>
           <input
             id="phone"
@@ -64,21 +111,20 @@ export default function EnquiryForm() {
             className="rounded-lg border border-line bg-bg-alt px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
           />
         </div>
-      </div>
-
-      <div className="mt-5 flex flex-col gap-2">
-        <label className="text-sm font-medium text-ink" htmlFor="inquiry">
-          What are you interested in?
-        </label>
-        <select
-          id="inquiry"
-          name="inquiry"
-          className="rounded-lg border border-line bg-bg-alt px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
-        >
-          {INQUIRIES.map((item) => (
-            <option key={item}>{item}</option>
-          ))}
-        </select>
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium text-ink" htmlFor="inquiry">
+            What are you interested in?
+          </label>
+          <select
+            id="inquiry"
+            name="inquiry"
+            className="rounded-lg border border-line bg-bg-alt px-4 py-3 text-ink outline-none transition-colors focus:border-accent"
+          >
+            {INQUIRIES.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="mt-5 flex flex-col gap-2">
@@ -94,11 +140,18 @@ export default function EnquiryForm() {
         />
       </div>
 
+      {error && (
+        <p className="mt-4 text-xs font-semibold text-red-500 text-center">
+          {error}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="mt-6 w-full rounded-full bg-accent px-6 py-3.5 font-semibold text-white transition-colors hover:bg-accent-deep"
+        disabled={loading}
+        className="mt-6 w-full rounded-full bg-accent px-6 py-3.5 font-semibold text-white transition-colors hover:bg-accent-deep disabled:bg-neutral-300 disabled:cursor-not-allowed"
       >
-        Get a call back
+        {loading ? "Sending..." : "Get a call back"}
       </button>
     </form>
   );

@@ -22,6 +22,8 @@ export default function HomeEnquiry() {
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -35,9 +37,29 @@ export default function HomeEnquiry() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to submit enquiry. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -203,6 +225,11 @@ export default function HomeEnquiry() {
                     </div>
 
                     {/* Form Footer */}
+                    {error && (
+                      <p className="text-red-500 text-xs font-semibold mb-4 text-center sm:text-right">
+                        {error}
+                      </p>
+                    )}
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-black/5">
                       <div className="text-xs text-neutral-400 text-center sm:text-left leading-relaxed font-medium">
                         We're excited to connect with you!<br />
@@ -211,9 +238,10 @@ export default function HomeEnquiry() {
                       
                       <button
                         type="submit"
-                        className="group relative flex items-center justify-between gap-6 rounded-full bg-[#cea86f] hover:bg-[#b8935c] text-white font-semibold text-xs tracking-wider uppercase pl-8 pr-2 py-2 transition-all duration-300 hover:shadow-lg"
+                        disabled={loading}
+                        className="group relative flex items-center justify-between gap-6 rounded-full bg-[#cea86f] hover:bg-[#b8935c] disabled:bg-neutral-300 disabled:cursor-not-allowed text-white font-semibold text-xs tracking-wider uppercase pl-8 pr-2 py-2 transition-all duration-300 hover:shadow-lg"
                       >
-                        <span>Get A Call Back</span>
+                        <span>{loading ? "Sending..." : "Get A Call Back"}</span>
                         <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center text-ink text-xs font-bold transition-transform duration-300 group-hover:translate-x-0.5 shadow-sm">
                           ↗
                         </div>
