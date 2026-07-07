@@ -79,8 +79,8 @@ export const PROJECTS: Project[] = [
 ];
 
 export const TEAM: TeamMember[] = [
-  { name: "Hari Bhai", role: "Founder", tone: "from-[#a8927a] to-[#6b5742]" },
-  { name: "Mahesh Bhai", role: "Co-Founder", tone: "from-[#8a7d6a] to-[#54493b]" },
+  { name: "Mr Hari Ram Suthar", role: "Founder", tone: "from-[#a8927a] to-[#6b5742]" },
+  { name: "Mr Mahesh Suthar", role: "Co-Founder", tone: "from-[#8a7d6a] to-[#54493b]" },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -130,6 +130,6 @@ export const NAV_LINKS = [
 export const CONTACT = {
   phone: "+91 63753 45407",
   phoneHref: "tel:+916375345407",
-  email: "hello@aartifurniture.com",
-  location: "Jaipur, Rajasthan, India",
+  email: "aartifurniture99@gmail.com",
+  location: "ANKLESHWAR SAHYOG RESIDENCY 108",
 };
