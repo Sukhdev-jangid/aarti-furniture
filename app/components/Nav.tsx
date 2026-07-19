@@ -39,7 +39,7 @@ export default function Nav() {
           <span className="font-display text-2xl font-bold tracking-tight text-ink">
             Aarti
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-accent mt-1">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-accent-text mt-1">
             Furniture
           </span>
         </Link>
@@ -69,7 +69,7 @@ export default function Nav() {
             href={CONTACT.phoneHref}
             className="text-sm font-medium text-ink/80 transition-colors hover:text-accent"
           >
-            <span className="text-muted text-xs mr-1 font-normal">Call Us:</span>
+            <span className="text-ink/60 text-xs mr-1 font-normal">Call Us:</span>
             <span className="font-semibold underline decoration-accent/40 decoration-2 underline-offset-4">{CONTACT.phone}</span>
           </a>
           <Link
@@ -129,7 +129,7 @@ export default function Nav() {
             href={CONTACT.phoneHref}
             className="text-center text-sm font-medium text-ink/80"
           >
-            <span className="text-muted block text-xs mb-1">Call Us:</span>
+            <span className="text-ink/60 block text-xs mb-1">Call Us:</span>
             <span className="font-semibold text-base">{CONTACT.phone}</span>
           </a>
           <Link

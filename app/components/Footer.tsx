@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT } from "../lib/data";
 
 export default function Footer() {
@@ -6,10 +7,13 @@ export default function Footer() {
     <footer className="relative w-full overflow-hidden bg-[#14120f] pt-24 pb-16 text-white border-t border-white/5">
       {/* Background Image with Warm Overlay - Optimized for high visibility */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/hero-bg.jpg"
           alt="Modern luxury interior background"
-          className="w-full h-full object-cover opacity-60 object-center"
+          fill
+          className="object-cover opacity-60 object-center"
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#14120f]/60 to-[#14120f]" />
       </div>
@@ -89,7 +93,7 @@ export default function Footer() {
                   </span>
                 </div>
               </Link>
-              <p className="text-xs leading-relaxed text-neutral-400 font-normal max-w-[280px]">
+              <p className="text-xs leading-relaxed text-neutral-600 font-normal max-w-[280px]">
                 We are creators of transformative spaces that inspire, innovate, and endure.
               </p>
             </div>
@@ -149,7 +153,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom copyright & credits bar */}
-          <div className="mt-12 pt-8 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400 font-medium text-center sm:text-left">
+          <div className="mt-12 pt-8 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-600 font-medium text-center sm:text-left">
             <p>© 2026 Aarti Furniture. All Rights Reserved.</p>
             <p>Designed & Developed By Digital Creation Technology Pvt. Ltd.</p>
           </div>

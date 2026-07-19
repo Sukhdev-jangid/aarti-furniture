@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Reveal from "../components/Reveal";
 import Counter from "../components/Counter";
@@ -32,7 +33,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-2">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+            <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent-text">
               Shaping the world
             </span>
             <h2 className="mt-5 font-display text-4xl leading-tight text-ink sm:text-5xl">
@@ -56,7 +57,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deep"
+                className="inline-flex items-center gap-2 font-semibold text-accent-text hover:text-accent-deep"
               >
                 Work with us <span aria-hidden>→</span>
               </Link>
@@ -86,7 +87,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent-text">
                 Our process
               </span>
               <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl">
@@ -122,7 +123,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent-text">
                 Our Founders
               </span>
               <h2 className="mt-5 font-display text-4xl text-ink sm:text-5xl">
@@ -136,10 +137,12 @@ export default function AboutPage() {
                 <div className="overflow-hidden rounded-2xl border border-line bg-bg">
                   <div className="aspect-square relative overflow-hidden bg-bg-alt">
                     {member.image ? (
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                        fill
+                        className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
                     ) : (
                       <div className={`w-full h-full bg-gradient-to-br ${member.tone}`} />

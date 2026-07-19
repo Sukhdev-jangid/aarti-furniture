@@ -27,12 +27,16 @@ export default function FloatingButtons() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center">
+      {/* Hidden description for screen readers about new tab */}
+      <span id="whatsapp-new-tab-desc" className="sr-only">Opens WhatsApp chat in a new tab</span>
+
       {/* WhatsApp Button */}
       <a
         href="https://wa.me/916375345407"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        aria-describedby="whatsapp-new-tab-desc"
         className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#20ba5a] active:scale-95"
       >
         <svg

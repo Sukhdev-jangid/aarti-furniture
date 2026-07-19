@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import { Project } from "../lib/data";
 
@@ -13,11 +14,13 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
       {/* Dynamic Section Background Image - fills the parent relative section */}
       <div className="absolute inset-0 -z-10 transition-all duration-1000 overflow-hidden pointer-events-none">
         {projects[activeIndex].image ? (
-          <img
+          <Image
             key={`bg-${activeIndex}`}
             src={projects[activeIndex].image}
             alt="background"
-            className="w-full h-full object-cover opacity-40 scale-105 transition-all duration-1000"
+            fill
+            className="object-cover opacity-40 scale-105 transition-all duration-1000"
+            sizes="100vw"
           />
         ) : (
           <div className={`w-full h-full bg-gradient-to-br ${projects[activeIndex].tone} opacity-40 transition-all duration-1000`} />
@@ -34,7 +37,7 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
               key={project.title}
               onMouseEnter={() => setActiveIndex(idx)}
               onClick={() => setActiveIndex(idx)}
-              className="text-left group relative focus:outline-none transition-all duration-300"
+              className="text-left group relative transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent rounded-sm"
             >
               <div className="flex items-baseline gap-4 py-1">
                 <span
@@ -70,11 +73,13 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
         {/* Dynamic Image Overlay */}
         <div className="absolute inset-0 transition-all duration-700 hover-zoom w-full h-full">
           {projects[activeIndex].image ? (
-            <img
+            <Image
               key={`preview-${activeIndex}`}
               src={projects[activeIndex].image}
               alt={projects[activeIndex].title}
-              className="absolute inset-0 w-full h-full object-cover zoom-target"
+              fill
+              className="absolute inset-0 object-cover zoom-target"
+              sizes="(max-width: 1024px) 100vw, 62vw"
             />
           ) : (
             <div className={`absolute inset-0 bg-gradient-to-br ${projects[activeIndex].tone} zoom-target`} />

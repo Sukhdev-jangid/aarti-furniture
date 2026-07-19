@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Reveal from "../components/Reveal";
 import PageBanner from "../components/PageBanner";
 import CTASection from "../components/CTASection";
@@ -33,9 +34,11 @@ export default function ServicesPage() {
               >
                 <div className="aspect-[4/3] rounded-[2.5rem] bg-white border border-black/5 shadow-md flex items-center justify-center p-8 sm:p-12 overflow-hidden">
                   {service.image ? (
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.title}
+                      width={600}
+                      height={450}
                       className="max-h-full max-w-full object-contain transition-transform duration-700 hover:scale-105"
                     />
                   ) : (
@@ -54,7 +57,7 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deep"
+                    className="mt-7 inline-flex items-center gap-2 font-semibold text-accent-text hover:text-accent-deep"
                   >
                     Enquire about this service <span aria-hidden>→</span>
                   </Link>

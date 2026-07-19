@@ -7,6 +7,8 @@
   --muted: #4f4f4f;
   --accent: #cfa864;
   --accent-deep: #b28e4e;
+  /* Darker gold for text on light backgrounds — meets WCAG AA 4.5:1 on white */
+  --accent-text: #8a6100;
   --line: #e2e2e2;
 }
 
@@ -17,6 +19,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
+  --color-accent-text: var(--accent-text);
   --color-line: var(--line);
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
@@ -138,6 +141,9 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
+    animation: none;
+  }
+  .animate-spin-slow {
     animation: none;
   }
   .reveal, .reveal-scale {

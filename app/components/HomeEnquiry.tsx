@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 const INQUIRIES = [
@@ -73,10 +74,12 @@ export default function HomeEnquiry() {
       >
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="/enquiry_bg.png"
             alt="Luxury green living room interior"
-            className="w-full h-full object-cover object-center opacity-85"
+            fill
+            className="object-cover object-center opacity-85"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/25" />
         </div>
@@ -89,17 +92,21 @@ export default function HomeEnquiry() {
               {/* Blueprint watermark illustrations restricted to card rounded corners */}
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none z-0">
                 <div className="absolute left-0 top-0 bottom-0 w-1/3 opacity-[0.06] select-none">
-                  <img
+                  <Image
                     src="/service_space_cutout.png"
                     alt="Blueprint design sketch"
-                    className="w-full h-full object-contain object-left scale-110"
+                    fill
+                    className="object-contain object-left scale-110"
+                    sizes="33vw"
                   />
                 </div>
                 <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-[0.06] select-none scale-x-[-1]">
-                  <img
+                  <Image
                     src="/service_space_cutout.png"
                     alt="Blueprint design sketch"
-                    className="w-full h-full object-contain object-right scale-110"
+                    fill
+                    className="object-contain object-right scale-110"
+                    sizes="33vw"
                   />
                 </div>
               </div>

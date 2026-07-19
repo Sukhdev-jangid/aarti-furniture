@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "./components/Reveal";
 import Marquee from "./components/Marquee";
 import Counter from "./components/Counter";
@@ -24,7 +25,7 @@ const PILLARS = [
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+    <span className="text-xs font-semibold uppercase tracking-[0.35em] text-accent-text">
       {children}
     </span>
   );
@@ -169,13 +170,15 @@ export default function Home() {
           <div className="lg:col-span-7 flex flex-col justify-stretch">
             <Reveal type="scale" delay={300} className="h-full flex">
               <div 
-                className="w-full h-full min-h-[380px] md:min-h-[520px] bg-neutral-100 overflow-hidden"
+                className="relative w-full h-full min-h-[380px] md:min-h-[520px] bg-neutral-100 overflow-hidden"
                 style={{ clipPath: "url(#folder-tab-clip)" }}
               >
-                <img
+                <Image
                   src="/about_interior_main.png"
                   alt="Modern Dining Room with Yellow Chairs"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
                 />
               </div>
             </Reveal>
@@ -245,11 +248,13 @@ export default function Home() {
 
             {/* Card 4: Sub Image */}
             <Reveal type="scale" delay={500} className="h-full flex">
-              <div className="rounded-[2.5rem] overflow-hidden w-full h-full min-h-[220px] bg-neutral-100">
-                <img
+              <div className="relative rounded-[2.5rem] overflow-hidden w-full h-full min-h-[220px] bg-neutral-100">
+                <Image
                   src="/about_interior_sub.png"
                   alt="Modern Restaurant Bar Counter"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                 />
               </div>
             </Reveal>
@@ -299,9 +304,11 @@ export default function Home() {
                     {/* Image */}
                     {service.image && (
                       <div className="w-full mt-auto flex justify-center items-end max-h-[220px] md:max-h-[260px] overflow-hidden rounded-b-[2.5rem]">
-                        <img
+                        <Image
                           src={service.image}
                           alt={service.title}
+                          width={480}
+                          height={240}
                           className="max-w-[90%] md:max-w-full max-h-[200px] md:max-h-[240px] object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                         />
                       </div>

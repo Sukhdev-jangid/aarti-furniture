@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Reveal from "../components/Reveal";
 import PageBanner from "../components/PageBanner";
 import CTASection from "../components/CTASection";
@@ -28,10 +29,12 @@ export default function ProjectsPage() {
                 <div className="aspect-[16/10] relative overflow-hidden transition-transform duration-700 group-hover:scale-105 bg-bg-alt">
                   {project.image ? (
                     <>
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover object-center"
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 640px) 100vw, 50vw"
                       />
                       <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/30" />
                     </>
